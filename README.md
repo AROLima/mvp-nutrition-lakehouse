@@ -569,3 +569,14 @@ O objetivo principal do MVP foi atingido. Foi possível executar o fluxo desde a
 Como continuação, eu gostaria de ampliar o projeto utilizando outros indicadores relacionados à alimentação e saúde. Também seria interessante substituir a ingestão manual dos CSVs por um processo automatizado, permitindo atualizar as tabelas quando novas versões dos dados forem disponibilizadas.
 
 ---
+# 8. Tecnologias Utilizadas
+
+- Databricks Free Edition
+- Apache Spark
+- PySpark
+- Delta Lake
+- Unity Catalog
+- Python
+- GitHub
+
+---
