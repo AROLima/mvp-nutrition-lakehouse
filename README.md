@@ -1,4 +1,4 @@
-# MVP — Pipeline de Dados para Análise de Indicadores Nutricionais
+# MVP Pipeline de Dados para Análise de Indicadores Nutricionais
 
 ## Evolução da obesidade e do excesso de peso em adultos no Brasil
 
