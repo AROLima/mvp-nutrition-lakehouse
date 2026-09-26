@@ -250,7 +250,6 @@ Dimensão responsável pelo sexo associado ao indicador.
 | `sex` | string | Sexo relacionado ao indicador |
 
 Valores possíveis para `sex`: `Female` e `Male`.
-
 Origem: campo `sex` da tabela `silver_nutrition`.
 
 ---
@@ -265,7 +264,6 @@ Dimensão responsável pelo tipo de indicador nutricional.
 | `indicator` | string | Indicador nutricional analisado |
 
 Valores possíveis para `indicator`: `Obesity` e `Overweight`.
-
 Origem: campo `indicator` da tabela `silver_nutrition`.
 
 ---
@@ -273,7 +271,6 @@ Origem: campo `indicator` da tabela `silver_nutrition`.
 ### Tabela `gold_fact_nutrition`
 
 Tabela fato central do modelo dimensional.
-
 Cada registro representa uma combinação de país, ano, sexo e indicador nutricional.
 
 | Campo | Tipo | Descrição | Relacionamento / Origem |
@@ -285,7 +282,5 @@ Cada registro representa uma combinação de país, ano, sexo e indicador nutric
 | `prevalence_pct` | double | Prevalência estimada em percentual | `silver_nutrition.prevalence_pct` |
 
 A granularidade da tabela fato é:
-
 `país + ano + sexo + indicador`
-
 Essa estrutura permite consultar a prevalência utilizando diferentes dimensões sem repetir os atributos descritivos dentro da tabela fato.
