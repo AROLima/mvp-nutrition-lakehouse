@@ -556,3 +556,16 @@ Dessa forma, o Brasil ficou abaixo de parte dos países analisados, mas apresent
 
 **Notebook:** [04_analysis.ipynb](notebooks/04_analysis.ipynb)
 
+# 7. Autoavaliação
+
+A principal dificuldade que encontrei no desenvolvimento deste MVP aconteceu antes mesmo da construção do pipeline: a escolha dos dados.
+Minha ideia inicial era trabalhar com dados nutricionais do SISVAN. Porém, durante os testes percebi que os arquivos eram grandes para o fluxo que eu estava utilizando e comecei a ter dificuldades para fazer a ingestão no Databricks. Também considerei utilizar dados do Vigitel, mas acabei optando por uma fonte menor e mais simples de trabalhar dentro do prazo disponível.
+Por isso, o projeto foi direcionado para os dados de obesidade e excesso de peso da Organização Mundial da Saúde, disponibilizados pelo Our World in Data. Essa mudança reduziu o escopo, mas manteve o tema de nutrição e permitiu construir o pipeline completo.
+Outra dificuldade apareceu na camada Bronze. Ao tentar persistir os DataFrames como tabelas Delta, recebi um erro porque os nomes originais de algumas colunas possuíam caracteres especiais não aceitos naquele formato. A solução foi padronizar os nomes das colunas antes da gravação. Esse problema foi importante porque mostrou uma diferença entre simplesmente conseguir ler um arquivo e conseguir armazená-lo de forma adequada dentro da arquitetura escolhida.
+A separação entre Bronze, Silver e Gold também ficou mais clara durante a execução do projeto. Antes de implementar, eu entendia as três camadas principalmente de forma conceitual. Durante o desenvolvimento, ficou mais fácil perceber a responsabilidade de cada uma: preservar a origem na Bronze, padronizar e verificar os dados na Silver e organizar a estrutura utilizada pelas análises na Gold.
+A criação do Star Schema foi outra parte importante do trabalho. A separação entre a tabela fato e as dimensões de país, tempo, sexo e indicador ajudou a entender melhor como uma modelagem analítica pode facilitar consultas posteriores.
+Na análise de qualidade, eu esperava encontrar mais problemas nos dados. No entanto, não foram encontrados valores nulos, duplicidades ou percentuais fora do intervalo esperado. Nesse caso, o resultado da análise de qualidade foi justamente confirmar que a base utilizada já possuía boa consistência, em vez de realizar tratamentos apenas para demonstrar transformações.
+O objetivo principal do MVP foi atingido. Foi possível executar o fluxo desde a ingestão dos arquivos até a persistência das tabelas e análise dos dados dentro do Databricks, além de responder às perguntas definidas no início do projeto.
+Como continuação, eu gostaria de ampliar o projeto utilizando outros indicadores relacionados à alimentação e saúde. Também seria interessante substituir a ingestão manual dos CSVs por um processo automatizado, permitindo atualizar as tabelas quando novas versões dos dados forem disponibilizadas.
+
+---
