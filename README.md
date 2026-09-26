@@ -71,8 +71,7 @@ Dessa forma, as etapas de ingestão, transformação, modelagem e análise foram
 
 A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog dentro do Databricks.
 
-```markdown
-![Arquivos armazenados no Databricks](docs/screenshots/01_databricks_volume.png)
-```
+### Evidência do armazenamento em nuvem
 
----
+A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog dentro do Databricks.
+![Arquivos armazenados no Databricks](docs/screenshots/01_databricks_volume.png)
