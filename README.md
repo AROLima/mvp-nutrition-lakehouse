@@ -331,3 +331,37 @@ Também não foram identificadas chaves dimensionais nulas.
 
 **Notebook:** [03_gold_modeling.ipynb](notebooks/03_gold_modeling.ipynb)
 
+## 4.4 Evidência da persistência das tabelas
+
+Após a conclusão das três camadas, foi realizada uma consulta ao catálogo do Databricks utilizando:
+
+```sql
+SHOW TABLES IN workspace.default
+```
+
+O resultado mostra as quatro tabelas Bronze, a tabela Silver e as cinco tabelas da camada Gold.
+Também é possível observar que todas apresentam `isTemporary = false`, indicando que foram persistidas no catálogo e não correspondem apenas a estruturas temporárias da sessão.
+
+![Tabelas persistidas no Databricks](docs/05_persistencia_tabelas.png)
+
+Ao final do pipeline foram persistidas **10 tabelas**:
+
+```text
+Bronze
+├── bronze_obesity_female
+├── bronze_obesity_male
+├── bronze_overweight_female
+└── bronze_overweight_male
+
+Silver
+└── silver_nutrition
+
+Gold
+├── gold_dim_country
+├── gold_dim_indicator
+├── gold_dim_sex
+├── gold_dim_time
+└── gold_fact_nutrition
+```
+
+
