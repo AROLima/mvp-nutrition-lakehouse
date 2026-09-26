@@ -415,3 +415,33 @@ Como a fonte já apresentava boa qualidade, não foi necessário excluir duplici
 
 ---
 
+# 6. Análise de Dados
+
+As análises finais foram realizadas utilizando os dados da camada Gold.
+As consultas foram executadas com PySpark e as visualizações foram criadas dentro do próprio Databricks.
+
+## 6.1 Evolução da obesidade no Brasil
+
+Inicialmente foi analisada a evolução da prevalência estimada de obesidade entre homens e mulheres no Brasil.
+
+![Evolução da obesidade no Brasil](docs/08_obesity_evolution1.png)
+![Evolução da obesidade no Brasil](docs/08_obesity_evolution2.png)
+
+O gráfico mostra crescimento nos dois grupos entre 1980 e 2024.
+
+Entre as mulheres:
+
+- 1980: aproximadamente **8,95%**
+- 2024: aproximadamente **33,95%**
+
+Isso representa um aumento de aproximadamente **25 pontos percentuais**.
+
+Entre os homens:
+
+- 1980: aproximadamente **3,50%**
+- 2024: aproximadamente **26,05%**
+
+O aumento foi de aproximadamente **22,55 pontos percentuais**.
+Durante toda a série analisada, a prevalência feminina permaneceu acima da masculina.
+
+
