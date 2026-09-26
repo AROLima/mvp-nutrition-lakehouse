@@ -488,5 +488,21 @@ Nesse indicador, o crescimento entre os homens foi maior.
 A diferença entre os sexos passou de aproximadamente **11,24 pontos percentuais em 1980** para aproximadamente **3,06 pontos percentuais em 2024**.
 Diferentemente do comportamento observado na obesidade, no excesso de peso a diferença entre homens e mulheres diminuiu ao longo da série.
 
+---
+
+## 6.4 Comparação com países da América do Sul
+
+Para colocar o resultado brasileiro em contexto, foi realizada uma comparação da prevalência feminina de obesidade em 2024 com outros países da América do Sul.
+
+![Comparação com países da América do Sul](docs/11_south_america1.png)
+![Comparação com países da América do Sul](docs/11_south_america2.png)
+![Comparação com países da América do Sul](docs/11_south_america3.png)
+
+O Brasil apresentou prevalência estimada de aproximadamente **33,95%**.
+Entre os 12 países analisados, o Brasil ficou na **oitava posição** quando os valores foram ordenados do maior para o menor.
+O maior valor observado foi o do Chile, com aproximadamente **46,41%**.
+O menor valor foi o da Venezuela, com aproximadamente **25,42%**.
+
+
 
 
