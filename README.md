@@ -26,3 +26,43 @@ O objetivo do projeto foi construir um pipeline capaz de receber os dados brutos
 4. Como a obesidade feminina no Brasil em 2024 se compara à de outros países da América do Sul?
 
 ---
+## 1.3 Fonte dos dados
+
+Os dados utilizados têm como fonte original a Organização Mundial da Saúde, por meio do Global Health Observatory, e foram obtidos através da plataforma Our World in Data.
+
+Foram utilizados quatro arquivos CSV:
+- obesidade em mulheres;
+- obesidade em homens;
+- excesso de peso em mulheres;
+- excesso de peso em homens.
+
+Cada arquivo possui informações de país, código do país, ano e valor do indicador.
+Cada conjunto possui 9.270 registros. Considerando as quatro fontes, foram carregados **37.080 registros brutos**.
+A série utilizada cobre o período entre **1980 e 2024**.
+Os indicadores utilizados são referentes à população adulta com 18 anos ou mais e são padronizados por idade.
+
+## 1.4 Indicadores utilizados
+
+**Obesidade:** percentual estimado de adultos com Índice de Massa Corporal (IMC) igual ou superior a 30 kg/m².
+**Excesso de peso:** percentual estimado de adultos com IMC igual ou superior a 25 kg/m².
+Os dados possuem valores separados entre homens e mulheres.
+
+---
+
+# 2. Plataforma de Nuvem e Carga dos Dados
+
+## 2.1 Plataforma utilizada
+
+Todo o pipeline foi desenvolvido no **Databricks Free Edition**.
+
+O Databricks foi utilizado para:
+
+- armazenamento dos arquivos de origem;
+- criação e execução dos notebooks;
+- processamento dos dados com PySpark;
+- persistência das tabelas em formato Delta;
+- gerenciamento das tabelas através do Unity Catalog;
+- execução das consultas analíticas;
+- criação das visualizações utilizadas na análise final.
+
+Dessa forma, as etapas de ingestão, transformação, modelagem e análise foram executadas dentro do ambiente de nuvem do Databricks.
