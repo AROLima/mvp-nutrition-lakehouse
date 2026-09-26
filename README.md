@@ -74,4 +74,4 @@ A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog
 ### Evidência do armazenamento em nuvem
 
 A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog dentro do Databricks.
-![Arquivos armazenados no Databricks](docs/screenshots/01_databricks_volume.png)
+![Arquivos armazenados no Databricks](docs/01_databricks_volume.png)
