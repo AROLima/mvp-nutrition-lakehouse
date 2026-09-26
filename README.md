@@ -408,17 +408,10 @@ Como `prevalence_pct` representa um percentual, foi verificada a existência de 
 
 Também foi analisada a quantidade de registros por sexo e indicador.
 
-| Indicador | Sexo | Registros |
-|---|---|---:|
-| Obesity | Female | 9.270 |
-| Obesity | Male | 9.270 |
-| Overweight | Female | 9.270 |
-| Overweight | Male | 9.270 |
+![Análise de qualidade no Databricks](docs/07_data_quality5.png)
 
 Os quatro grupos apresentaram a mesma quantidade de registros.
 Como a fonte já apresentava boa qualidade, não foi necessário excluir duplicidades, preencher valores ausentes ou remover registros inválidos.
-
-![Análise de qualidade no Databricks](docs/07_data_quality5.png)
 
 ---
 
