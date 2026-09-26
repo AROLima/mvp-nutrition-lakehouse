@@ -306,6 +306,15 @@ Essa estrutura permite consultar a prevalência utilizando diferentes dimensões
 
 # 4. Pipeline de Dados
 
+O pipeline foi dividido em notebooks de acordo com a responsabilidade de cada etapa.
+
+- `01_bronze_ingestion.ipynb`: ingestão e persistência dos dados brutos;
+- `02_silver_transformation.ipynb`: padronização, transformação e validação dos dados;
+- `03_gold_modeling.ipynb`: construção do modelo dimensional;
+- `04_analysis.ipynb`: consultas analíticas e geração das visualizações.
+
+Essa separação foi utilizada para manter cada etapa do processo organizada e facilitar a execução e manutenção do pipeline.
+
 ## 4.1 Camada Bronze
 
 Na primeira etapa foram carregados os quatro arquivos CSV.
