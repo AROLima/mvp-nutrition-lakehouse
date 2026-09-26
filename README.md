@@ -592,3 +592,10 @@ Como continuação, eu gostaria de ampliar o projeto utilizando outros indicador
 - GitHub
 
 ---
+# 9. Referências
+
+- [World Health Organization — Global Health Observatory](https://www.who.int/data/gho)
+- [Our World in Data — Obesity](https://ourworldindata.org/obesity)
+- [Databricks — Medallion Architecture](https://docs.databricks.com/aws/en/lakehouse/medallion)
+- [Databricks — Delta Lake](https://docs.databricks.com/aws/en/delta/)
+- [Databricks — Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/)
