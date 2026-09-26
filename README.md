@@ -364,4 +364,61 @@ Gold
 └── gold_fact_nutrition
 ```
 
+---
+# 5. Qualidade de Dados
+
+A análise de qualidade foi realizada utilizando PySpark diretamente no Databricks.
+
+## 5.1 Completude
+
+Foi verificada a presença de valores nulos em todas as colunas.
+
+**Resultado:** nenhum valor nulo foi encontrado.
+![Análise de qualidade no Databricks](docs/07_data_quality1.png)
+
+## 5.2 Unicidade
+
+Foi realizada uma busca por registros duplicados considerando:
+
+- `country`
+- `country_code`
+- `year`
+- `sex`
+- `indicator`
+- `prevalence_pct`
+
+**Resultado:** nenhum registro duplicado foi encontrado.
+![Análise de qualidade no Databricks](docs/07_data_quality2.png)
+## 5.3 Consistência temporal
+
+Foi verificado o menor e o maior ano presentes na base.
+
+```text
+Ano mínimo: 1980
+Ano máximo: 2024
+```
+![Análise de qualidade no Databricks](docs/07_data_quality3.png)
+
+## 5.4 Validade da prevalência
+Como `prevalence_pct` representa um percentual, foi verificada a existência de valores menores que 0 ou maiores que 100.
+**Resultado:** nenhum valor fora do intervalo foi identificado.
+
+![Análise de qualidade no Databricks](docs/07_data_quality4.png)
+## 5.5 Consistência entre os conjuntos
+
+Também foi analisada a quantidade de registros por sexo e indicador.
+
+| Indicador | Sexo | Registros |
+|---|---|---:|
+| Obesity | Female | 9.270 |
+| Obesity | Male | 9.270 |
+| Overweight | Female | 9.270 |
+| Overweight | Male | 9.270 |
+
+Os quatro grupos apresentaram a mesma quantidade de registros.
+Como a fonte já apresentava boa qualidade, não foi necessário excluir duplicidades, preencher valores ausentes ou remover registros inválidos.
+
+![Análise de qualidade no Databricks](docs/07_data_quality5.png)
+
+---
 
