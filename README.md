@@ -67,6 +67,21 @@ O Databricks foi utilizado para:
 
 Dessa forma, as etapas de ingestão, transformação, modelagem e análise foram executadas dentro do ambiente de nuvem do Databricks.
 
+---
+## 2.2 Armazenamento dos arquivos
+
+Os quatro arquivos CSV foram enviados para um Volume do Unity Catalog no Databricks.
+Durante o desenvolvimento foi utilizado o diretório:
+
+`/Volumes/workspace/default/sisvan`
+
+O nome do diretório foi criado no início do desenvolvimento, quando outra fonte de dados estava sendo considerada, e foi mantido posteriormente.
+
+### Evidência do armazenamento em nuvem
+
+A imagem abaixo mostra os quatro arquivos armazenados no ambiente do Databricks.
+
+![Arquivos armazenados no Databricks](docs/01_databricks_volume.png)
 ### Evidência do armazenamento em nuvem
 
 A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog dentro do Databricks.
