@@ -440,6 +440,10 @@ Entre os homens:
 
 - 1980: aproximadamente **3,50%**
 - 2024: aproximadamente **26,05%**
+- 
+
+O aumento foi de aproximadamente **22,55 pontos percentuais**.
+Durante toda a série analisada, a prevalência feminina permaneceu acima da masculina.
 
 ---
 
@@ -457,8 +461,5 @@ No final da série, a diferença entre os sexos era maior do que no início.
 
 ---
 
-
-O aumento foi de aproximadamente **22,55 pontos percentuais**.
-Durante toda a série analisada, a prevalência feminina permaneceu acima da masculina.
 
 
