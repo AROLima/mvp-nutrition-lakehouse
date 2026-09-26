@@ -461,5 +461,32 @@ No final da série, a diferença entre os sexos era maior do que no início.
 
 ---
 
+## 6.3 Evolução do excesso de peso
+
+Em seguida foi analisado o indicador de excesso de peso.
+
+![Evolução do excesso de peso](docs/10_overweight_evolution1.png)
+![Evolução do excesso de peso](docs/10_overweight_evolution2.png)
+![Evolução do excesso de peso](docs/10_overweight_evolution3.png)
+
+O indicador também apresentou crescimento entre 1980 e 2024.
+
+Entre as mulheres:
+
+- 1980: aproximadamente **34,75%**
+- 2024: aproximadamente **66,48%**
+
+O aumento foi de aproximadamente **31,73 pontos percentuais**.
+
+Entre os homens:
+
+- 1980: aproximadamente **23,52%**
+- 2024: aproximadamente **63,42%**
+
+O aumento foi de aproximadamente **39,91 pontos percentuais**.
+Nesse indicador, o crescimento entre os homens foi maior.
+A diferença entre os sexos passou de aproximadamente **11,24 pontos percentuais em 1980** para aproximadamente **3,06 pontos percentuais em 2024**.
+Diferentemente do comportamento observado na obesidade, no excesso de peso a diferença entre homens e mulheres diminuiu ao longo da série.
+
 
 
