@@ -84,9 +84,6 @@ A imagem abaixo mostra os quatro arquivos armazenados no ambiente do Databricks.
 ![Arquivos armazenados no Databricks](docs/01_databricks_volume.png)
 ### Evidência do armazenamento em nuvem
 
-A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog dentro do Databricks.
-![Arquivos armazenados no Databricks](docs/01_databricks_volume.png)
-
 ## 2.3 Ingestão dos dados
 
 Os quatro arquivos foram carregados separadamente utilizando PySpark em um notebook do Databricks.
