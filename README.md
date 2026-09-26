@@ -174,64 +174,118 @@ A medida armazenada é `prevalence_pct`.
 
 ## 3.3 Catálogo de Dados
 
+O catálogo abaixo descreve as tabelas utilizadas no pipeline, seus campos, tipos de dados e a origem das informações.
+
 ### Tabelas Bronze
 
-As quatro tabelas Bronze possuem a mesma estrutura.
+As quatro tabelas da camada Bronze possuem a mesma estrutura. A diferença entre elas está no indicador e no sexo representado por cada arquivo de origem.
 
 | Campo | Tipo | Descrição | Origem |
 |---|---|---|---|
-| `entity` | string | Nome do país ou localidade | `Entity` |
-| `code` | string | Código do país | `Code` |
-| `year` | string | Ano da observação | `Year` |
-| `raw_value` | string | Valor original do indicador | Coluna de prevalência |
+| `entity` | string | Nome do país ou localidade | Campo `Entity` do arquivo CSV |
+| `code` | string | Código do país | Campo `Code` do arquivo CSV |
+| `year` | string | Ano da observação | Campo `Year` do arquivo CSV |
+| `raw_value` | string | Valor original da prevalência | Coluna de indicador do arquivo CSV |
 
-### `silver_nutrition`
+As tabelas Bronze são:
 
-| Campo | Tipo | Descrição | Domínio |
+- `bronze_obesity_female`
+- `bronze_obesity_male`
+- `bronze_overweight_female`
+- `bronze_overweight_male`
+
+---
+
+### Tabela `silver_nutrition`
+
+A tabela Silver reúne os quatro conjuntos da camada Bronze em uma estrutura padronizada.
+
+| Campo | Tipo | Descrição | Domínio / Valores esperados |
 |---|---|---|---|
-| `country` | string | Nome do país | País/localidade |
+| `country` | string | Nome do país ou localidade | Ex.: Brazil, Argentina, Chile |
 | `country_code` | string | Código do país | Ex.: BRA, ARG, CHL |
 | `year` | integer | Ano da observação | 1980 a 2024 |
 | `sex` | string | Sexo relacionado ao indicador | Female, Male |
-| `indicator` | string | Indicador analisado | Obesity, Overweight |
-| `prevalence_pct` | double | Prevalência estimada em percentual | 0 a 100 |
+| `indicator` | string | Indicador nutricional analisado | Obesity, Overweight |
+| `prevalence_pct` | double | Prevalência estimada em percentual | Valores entre 0 e 100 |
 
-### `gold_dim_country`
+A tabela `silver_nutrition` é originada das quatro tabelas Bronze. Os campos `sex` e `indicator` foram adicionados durante a transformação para identificar a origem de cada registro.
+
+---
+
+### Tabela `gold_dim_country`
+
+Dimensão responsável pelas informações de país.
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| `country_id` | integer | Identificador da dimensão país |
-| `country` | string | Nome do país |
+| `country_id` | integer | Chave da dimensão país |
+| `country` | string | Nome do país ou localidade |
 | `country_code` | string | Código do país |
 
-### `gold_dim_time`
+Origem: campos `country` e `country_code` da tabela `silver_nutrition`.
+
+---
+
+### Tabela `gold_dim_time`
+
+Dimensão responsável pelo período das observações.
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| `time_id` | integer | Identificador da dimensão tempo |
+| `time_id` | integer | Chave da dimensão tempo |
 | `year` | integer | Ano da observação |
 
-### `gold_dim_sex`
+Origem: campo `year` da tabela `silver_nutrition`.
+
+---
+
+### Tabela `gold_dim_sex`
+
+Dimensão responsável pelo sexo associado ao indicador.
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| `sex_id` | integer | Identificador da dimensão sexo |
-| `sex` | string | Sexo relacionado ao registro |
+| `sex_id` | integer | Chave da dimensão sexo |
+| `sex` | string | Sexo relacionado ao indicador |
 
-### `gold_dim_indicator`
+Valores possíveis para `sex`: `Female` e `Male`.
+
+Origem: campo `sex` da tabela `silver_nutrition`.
+
+---
+
+### Tabela `gold_dim_indicator`
+
+Dimensão responsável pelo tipo de indicador nutricional.
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| `indicator_id` | integer | Identificador da dimensão indicador |
-| `indicator` | string | Indicador nutricional |
+| `indicator_id` | integer | Chave da dimensão indicador |
+| `indicator` | string | Indicador nutricional analisado |
 
-### `gold_fact_nutrition`
+Valores possíveis para `indicator`: `Obesity` e `Overweight`.
 
-| Campo | Tipo | Descrição | Origem |
+Origem: campo `indicator` da tabela `silver_nutrition`.
+
+---
+
+### Tabela `gold_fact_nutrition`
+
+Tabela fato central do modelo dimensional.
+
+Cada registro representa uma combinação de país, ano, sexo e indicador nutricional.
+
+| Campo | Tipo | Descrição | Relacionamento / Origem |
 |---|---|---|---|
-| `country_id` | integer | Chave da dimensão país | `gold_dim_country` |
-| `time_id` | integer | Chave da dimensão tempo | `gold_dim_time` |
-| `sex_id` | integer | Chave da dimensão sexo | `gold_dim_sex` |
-| `indicator_id` | integer | Chave da dimensão indicador | `gold_dim_indicator` |
-| `prevalence_pct` | double | Prevalência estimada | `silver_nutrition` |
+| `country_id` | integer | Chave referente ao país | `gold_dim_country.country_id` |
+| `time_id` | integer | Chave referente ao ano | `gold_dim_time.time_id` |
+| `sex_id` | integer | Chave referente ao sexo | `gold_dim_sex.sex_id` |
+| `indicator_id` | integer | Chave referente ao indicador | `gold_dim_indicator.indicator_id` |
+| `prevalence_pct` | double | Prevalência estimada em percentual | `silver_nutrition.prevalence_pct` |
 
+A granularidade da tabela fato é:
+
+`país + ano + sexo + indicador`
+
+Essa estrutura permite consultar a prevalência utilizando diferentes dimensões sem repetir os atributos descritivos dentro da tabela fato.
