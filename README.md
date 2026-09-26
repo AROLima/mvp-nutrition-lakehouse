@@ -70,8 +70,4 @@ Dessa forma, as etapas de ingestão, transformação, modelagem e análise foram
 ### Evidência do armazenamento em nuvem
 
 A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog dentro do Databricks.
-
-### Evidência do armazenamento em nuvem
-
-A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog dentro do Databricks.
 ![Arquivos armazenados no Databricks](docs/01_databricks_volume.png)
