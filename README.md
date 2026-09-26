@@ -97,3 +97,141 @@ raw_value
 ```
 Essa alteração foi realizada apenas nos nomes das colunas.
 
+---
+
+# 3. Modelagem e Catálogo de Dados
+
+## 3.1 Organização das camadas
+
+O pipeline foi dividido nas camadas Bronze, Silver e Gold.
+
+### Bronze
+
+A camada Bronze contém os dados provenientes dos arquivos CSV com o mínimo de alterações necessário para sua persistência.
+
+Foram criadas quatro tabelas:
+
+- `bronze_obesity_female`
+- `bronze_obesity_male`
+- `bronze_overweight_female`
+- `bronze_overweight_male`
+
+Cada tabela corresponde diretamente a uma das quatro fontes utilizadas.
+
+### Silver
+
+Na camada Silver, os quatro conjuntos foram padronizados e reunidos em uma única estrutura.
+
+Foi criada a tabela:
+
+`silver_nutrition`
+
+Nessa etapa foram realizados:
+
+- conversão dos tipos;
+- padronização das colunas;
+- inclusão do sexo;
+- inclusão do indicador;
+- união das quatro fontes.
+
+### Gold
+
+Na camada Gold, os dados foram organizados em um modelo dimensional.
+
+Foram criadas as seguintes tabelas:
+
+- `gold_fact_nutrition`
+- `gold_dim_country`
+- `gold_dim_time`
+- `gold_dim_sex`
+- `gold_dim_indicator`
+
+---
+
+## 3.2 Modelo dimensional
+
+Foi utilizado um modelo do tipo **Star Schema**.
+
+A tabela `gold_fact_nutrition` concentra a medida de prevalência e se relaciona com quatro dimensões.
+
+```text
+                       gold_dim_time
+                            |
+                            |
+gold_dim_country -- gold_fact_nutrition -- gold_dim_sex
+                            |
+                            |
+                    gold_dim_indicator
+```
+
+A granularidade da tabela fato corresponde a uma observação para cada combinação de:
+
+`país + ano + sexo + indicador`
+
+A medida armazenada é `prevalence_pct`.
+
+---
+
+## 3.3 Catálogo de Dados
+
+### Tabelas Bronze
+
+As quatro tabelas Bronze possuem a mesma estrutura.
+
+| Campo | Tipo | Descrição | Origem |
+|---|---|---|---|
+| `entity` | string | Nome do país ou localidade | `Entity` |
+| `code` | string | Código do país | `Code` |
+| `year` | string | Ano da observação | `Year` |
+| `raw_value` | string | Valor original do indicador | Coluna de prevalência |
+
+### `silver_nutrition`
+
+| Campo | Tipo | Descrição | Domínio |
+|---|---|---|---|
+| `country` | string | Nome do país | País/localidade |
+| `country_code` | string | Código do país | Ex.: BRA, ARG, CHL |
+| `year` | integer | Ano da observação | 1980 a 2024 |
+| `sex` | string | Sexo relacionado ao indicador | Female, Male |
+| `indicator` | string | Indicador analisado | Obesity, Overweight |
+| `prevalence_pct` | double | Prevalência estimada em percentual | 0 a 100 |
+
+### `gold_dim_country`
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| `country_id` | integer | Identificador da dimensão país |
+| `country` | string | Nome do país |
+| `country_code` | string | Código do país |
+
+### `gold_dim_time`
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| `time_id` | integer | Identificador da dimensão tempo |
+| `year` | integer | Ano da observação |
+
+### `gold_dim_sex`
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| `sex_id` | integer | Identificador da dimensão sexo |
+| `sex` | string | Sexo relacionado ao registro |
+
+### `gold_dim_indicator`
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| `indicator_id` | integer | Identificador da dimensão indicador |
+| `indicator` | string | Indicador nutricional |
+
+### `gold_fact_nutrition`
+
+| Campo | Tipo | Descrição | Origem |
+|---|---|---|---|
+| `country_id` | integer | Chave da dimensão país | `gold_dim_country` |
+| `time_id` | integer | Chave da dimensão tempo | `gold_dim_time` |
+| `sex_id` | integer | Chave da dimensão sexo | `gold_dim_sex` |
+| `indicator_id` | integer | Chave da dimensão indicador | `gold_dim_indicator` |
+| `prevalence_pct` | double | Prevalência estimada | `silver_nutrition` |
+
