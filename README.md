@@ -441,6 +441,23 @@ Entre os homens:
 - 1980: aproximadamente **3,50%**
 - 2024: aproximadamente **26,05%**
 
+---
+
+## 6.2 Diferença entre homens e mulheres na obesidade
+
+Também foi calculada a diferença entre a prevalência feminina e masculina ao longo do período.
+
+![Diferença entre homens e mulheres](docs/09_obesity_difference1.png)
+![Diferença entre homens e mulheres](docs/09_obesity_difference2.png)
+
+Em 1980, a diferença entre os dois grupos era de aproximadamente **5,44 pontos percentuais**.
+Em 2024, a diferença chegou a aproximadamente **7,90 pontos percentuais**.
+O gráfico mostra que essa diferença não cresceu de forma constante durante todo o período. Houve pequenas oscilações nas primeiras décadas e um aumento mais forte nos anos seguintes.
+No final da série, a diferença entre os sexos era maior do que no início.
+
+---
+
+
 O aumento foi de aproximadamente **22,55 pontos percentuais**.
 Durante toda a série analisada, a prevalência feminina permaneceu acima da masculina.
 
