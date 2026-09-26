@@ -284,3 +284,50 @@ Cada registro representa uma combinação de país, ano, sexo e indicador nutric
 A granularidade da tabela fato é:
 `país + ano + sexo + indicador`
 Essa estrutura permite consultar a prevalência utilizando diferentes dimensões sem repetir os atributos descritivos dentro da tabela fato.
+---
+
+# 4. Pipeline de Dados
+
+## 4.1 Camada Bronze
+
+Na primeira etapa foram carregados os quatro arquivos CSV.
+Cada conjunto apresentou **9.270 registros**.
+Após a leitura, foram realizadas verificações da quantidade de registros, nomes das colunas e esquema.
+Os DataFrames foram então persistidos em formato Delta.
+
+**Notebook:** [01_bronze_ingestion.ipynb](notebooks/01_bronze_ingestion.ipynb)
+
+---
+## 4.2 Camada Silver
+
+Na camada Silver, os quatro conjuntos foram transformados para possuir a mesma estrutura.
+As principais transformações foram:
+
+- padronização dos nomes das colunas;
+- conversão de `year` para inteiro;
+- conversão de `raw_value` para `double`;
+- criação da coluna `sex`;
+- criação da coluna `indicator`;
+- união das quatro fontes utilizando `unionByName`.
+
+O resultado foi a tabela `silver_nutrition`, contendo **37.080 registros**.
+
+**Notebook:** [02_silver_transformation.ipynb](notebooks/02_silver_transformation.ipynb)
+
+---
+
+## 4.3 Camada Gold
+
+Na camada Gold foram criadas quatro dimensões e uma tabela fato.
+Como forma de validação, foi comparada a quantidade de registros antes e depois da modelagem.
+
+```text
+Silver: 37.080 registros
+Gold Fact: 37.080 registros
+```
+
+Não houve perda nem multiplicação de registros durante os relacionamentos.
+Também não foram identificadas chaves dimensionais nulas.
+
+**Notebook:** [03_gold_modeling.ipynb](notebooks/03_gold_modeling.ipynb)
+
