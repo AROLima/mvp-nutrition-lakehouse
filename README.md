@@ -503,6 +503,47 @@ Entre os 12 países analisados, o Brasil ficou na **oitava posição** quando os
 O maior valor observado foi o do Chile, com aproximadamente **46,41%**.
 O menor valor foi o da Venezuela, com aproximadamente **25,42%**.
 
+--- 
 
+## 6.5 Brasil em 2024
 
+Os valores encontrados para o Brasil no último ano disponível foram:
 
+![Tabela da situação do Brasil em 2024](docs/12_brazil20241.png)
+![Tabela da situação do Brasil em 2024](docs/12_brazil20242.png)
+
+No indicador de excesso de peso, os valores entre homens e mulheres estão mais próximos.
+Na obesidade, a diferença entre os dois grupos é maior.
+
+---
+
+## 6.6 Respostas às perguntas do projeto
+
+A partir das análises realizadas, foi possível responder às quatro perguntas definidas no início do projeto.
+
+### 1. Como a obesidade evoluiu entre homens e mulheres no Brasil entre 1980 e 2024?
+A prevalência estimada de obesidade aumentou para os dois sexos durante o período analisado.
+Entre as mulheres, passou de aproximadamente **8,95% em 1980 para 33,95% em 2024**, um aumento de cerca de **25 pontos percentuais**.
+Entre os homens, passou de aproximadamente **3,50% para 26,05%**, representando aumento de aproximadamente **22,55 pontos percentuais**.
+Durante toda a série, a prevalência feminina permaneceu acima da masculina.
+
+### 2. Como o excesso de peso evoluiu entre homens e mulheres no mesmo período?
+
+O excesso de peso também apresentou crescimento nos dois grupos.
+Entre as mulheres, a prevalência passou de aproximadamente **34,75% em 1980 para 66,48% em 2024**.
+Entre os homens, passou de aproximadamente **23,52% para 63,42%**.
+O crescimento foi maior entre os homens, com aumento de aproximadamente **39,91 pontos percentuais**, enquanto entre as mulheres o aumento foi de aproximadamente **31,73 pontos percentuais**.
+
+### 3. A diferença entre homens e mulheres aumentou ou diminuiu ao longo da série histórica?
+
+O resultado depende do indicador analisado.
+Na obesidade, a diferença entre mulheres e homens aumentou. Ela passou de aproximadamente **5,44 pontos percentuais em 1980 para 7,90 pontos percentuais em 2024**.
+No excesso de peso ocorreu o contrário. A diferença caiu de aproximadamente **11,24 pontos percentuais para 3,06 pontos percentuais** no mesmo período.
+Portanto, a diferença entre os sexos aumentou para obesidade e diminuiu para excesso de peso.
+
+### 4. Como a obesidade feminina no Brasil em 2024 se compara à de outros países da América do Sul?
+
+Em 2024, a prevalência estimada de obesidade feminina no Brasil foi de aproximadamente **33,95%**.
+Entre os 12 países sul-americanos analisados, o Brasil ficou na **oitava posição** quando os valores foram organizados do maior para o menor.
+O Chile apresentou o maior valor, com aproximadamente **46,41%**, enquanto a Venezuela apresentou o menor, com aproximadamente **25,42%**.
+Dessa forma, o Brasil ficou abaixo de parte dos países analisados, mas apresentou prevalência superior à observada em Equador, Peru, Colômbia e Venezuela.
