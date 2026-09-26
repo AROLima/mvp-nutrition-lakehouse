@@ -295,8 +295,11 @@ Cada registro representa uma combinação de país, ano, sexo e indicador nutric
 | `prevalence_pct` | double | Prevalência estimada em percentual | `silver_nutrition.prevalence_pct` |
 
 A granularidade da tabela fato é:
+
 `país + ano + sexo + indicador`
+
 Essa estrutura permite consultar a prevalência utilizando diferentes dimensões sem repetir os atributos descritivos dentro da tabela fato.
+
 ---
 
 # 4. Pipeline de Dados
