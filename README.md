@@ -71,3 +71,29 @@ Dessa forma, as etapas de ingestão, transformação, modelagem e análise foram
 
 A imagem abaixo mostra os quatro arquivos armazenados no Volume do Unity Catalog dentro do Databricks.
 ![Arquivos armazenados no Databricks](docs/01_databricks_volume.png)
+
+## 2.3 Ingestão dos dados
+
+Os quatro arquivos foram carregados separadamente utilizando PySpark em um notebook do Databricks.
+Na camada Bronze, a inferência automática de esquema foi desabilitada para manter inicialmente os campos como texto.
+Os arquivos utilizados foram:
+
+```text
+share-of-females-defined-as-obese.csv
+share-of-females-defined-as-overweight.csv
+share-of-men-defined-as-obese.csv
+share-of-men-defined-as-overweight.csv
+```
+
+Durante a primeira tentativa de persistência das tabelas em formato Delta, foi identificado um problema nos nomes originais das colunas.
+A coluna contendo o indicador apresentava caracteres especiais não aceitos diretamente pelo Delta.
+Por esse motivo, os campos foram padronizados para:
+
+```text
+entity
+code
+year
+raw_value
+```
+Essa alteração foi realizada apenas nos nomes das colunas.
+
