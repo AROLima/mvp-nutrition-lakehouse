@@ -440,6 +440,20 @@ Também foi analisada a quantidade de registros por sexo e indicador.
 Os quatro grupos apresentaram a mesma quantidade de registros.
 Como a fonte já apresentava boa qualidade, não foi necessário excluir duplicidades, preencher valores ausentes ou remover registros inválidos.
 
+## 5.6 Tratamentos realizados
+
+Embora não tenham sido encontrados valores nulos, registros duplicados ou percentuais inválidos, algumas transformações foram necessárias durante a preparação dos dados.
+Na camada Bronze, os nomes originais das colunas dos indicadores continham caracteres especiais que causaram erro durante a persistência em formato Delta. Para resolver o problema, os campos foram padronizados para `entity`, `code`, `year` e `raw_value`.
+Na camada Silver também foram realizadas as seguintes transformações:
+
+- conversão do campo `year` para integer;
+- conversão do valor de prevalência para double;
+- padronização dos nomes das colunas;
+- criação das colunas `sex` e `indicator`;
+- união dos quatro conjuntos de dados em uma única tabela.
+
+Não foi necessário realizar preenchimento de valores ausentes, remoção de duplicidades ou exclusão de registros inválidos.
+
 ---
 
 # 6. Análise de Dados
