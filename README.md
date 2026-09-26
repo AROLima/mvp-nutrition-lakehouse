@@ -147,12 +147,20 @@ Foram criadas as seguintes tabelas:
 - `gold_dim_indicator`
 
 ---
-
 ## 3.2 Modelo dimensional
 
-Foi utilizado um modelo do tipo **Star Schema**.
+Foi utilizado um modelo do tipo **Star Schema** para organizar os dados da camada Gold.
 
-A tabela `gold_fact_nutrition` concentra a medida de prevalência e se relaciona com quatro dimensões.
+A tabela central do modelo é a `gold_fact_nutrition`, que armazena a prevalência estimada e as chaves utilizadas para relacionamento com as dimensões.
+
+O modelo possui quatro dimensões:
+
+- `gold_dim_country`: informações de país;
+- `gold_dim_time`: informações de tempo;
+- `gold_dim_sex`: informações de sexo;
+- `gold_dim_indicator`: informações do indicador nutricional.
+
+A estrutura do modelo é representada abaixo:
 
 ```text
                        gold_dim_time
@@ -164,11 +172,9 @@ gold_dim_country -- gold_fact_nutrition -- gold_dim_sex
                     gold_dim_indicator
 ```
 
-A granularidade da tabela fato corresponde a uma observação para cada combinação de:
-
-`país + ano + sexo + indicador`
-
-A medida armazenada é `prevalence_pct`.
+**Granularidade da tabela fato:** uma observação para cada combinação de país, ano, sexo e indicador.
+**Medida armazenada:** `prevalence_pct`.
+A utilização desse modelo permite manter as informações descritivas separadas da medida principal, facilitando consultas e análises utilizando diferentes dimensões.
 
 ---
 
