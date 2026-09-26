@@ -77,13 +77,6 @@ Durante o desenvolvimento foi utilizado o diretório:
 
 O nome do diretório foi criado no início do desenvolvimento, quando outra fonte de dados estava sendo considerada, e foi mantido posteriormente.
 
-### Evidência do armazenamento em nuvem
-
-A imagem abaixo mostra os quatro arquivos armazenados no ambiente do Databricks.
-
-![Arquivos armazenados no Databricks](docs/01_databricks_volume.png)
-### Evidência do armazenamento em nuvem
-
 ## 2.3 Ingestão dos dados
 
 Os quatro arquivos foram carregados separadamente utilizando PySpark em um notebook do Databricks.
@@ -193,6 +186,8 @@ A utilização desse modelo permite manter as informações descritivas separada
 ## 3.3 Catálogo de Dados
 
 O catálogo abaixo descreve as tabelas utilizadas no pipeline, seus campos, tipos de dados e a origem das informações.
+![Arquivos armazenados no Databricks](docs/01_databricks_volume.png)
+![Arquivos armazenados no Databricks](docs/01_databricks_volume2.png)
 
 ### Tabelas Bronze
 
