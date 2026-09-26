@@ -547,3 +547,6 @@ Em 2024, a prevalência estimada de obesidade feminina no Brasil foi de aproxima
 Entre os 12 países sul-americanos analisados, o Brasil ficou na **oitava posição** quando os valores foram organizados do maior para o menor.
 O Chile apresentou o maior valor, com aproximadamente **46,41%**, enquanto a Venezuela apresentou o menor, com aproximadamente **25,42%**.
 Dessa forma, o Brasil ficou abaixo de parte dos países analisados, mas apresentou prevalência superior à observada em Equador, Peru, Colômbia e Venezuela.
+
+**Notebook:** [04_analysis.ipynb](notebooks/04_analysis.ipynb)
+
